@@ -97,8 +97,9 @@ Volcano, Kueue, KAI or Coscheduling plugin.
   disrupt the active gang and are rejected at admission.
 - Supporting mutable `spec.scheduling` post-creation (toggle on/off, flip gang↔basic, or change
   topology constraints); scheduling configuration is immutable for Alpha.
-- Mutable `minCount` for elastic gang scaling - unlike Job, Deployment derives `minCount` from
-  `spec.replicas`; elastic semantics are a Beta follow-up.
+- User-provided `minCount` for gang scheduling - Deployment derives `minCount` from
+  `spec.replicas`, and user-provided values are rejected. Elastic gang semantics are a Beta
+  follow-up.
 - Multi-level or nested composite (`CompositePodGroup`) structures; this KEP covers single-level
   Deployment → ReplicaSet workloads only.
 - Exclusive access to DRA claims - any pod on the same node can reference a PodGroup's claim by
